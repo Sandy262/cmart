@@ -14,6 +14,7 @@ import {
 import { store } from './app/store';
 import Dashboard from './features/dashboard/Dashboard';
 import Welcomepage from './features/common/Welcomepage';
+import AddProduct from './features/dashboard/AddProduct';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,13 @@ const router = createBrowserRouter([
           },
           {
             path:'/dashboard',
-            element:<Dashboard></Dashboard>
+            element:<Dashboard></Dashboard>,
+            children:[
+              {
+                path:'/dashboard/addproduct',
+                element:<AddProduct></AddProduct>
+              }
+            ]
           },
           {
             path:'/login',
