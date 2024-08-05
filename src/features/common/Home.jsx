@@ -11,7 +11,7 @@ function Home() {
     <div className="container">
       <h1>{}</h1>
       <nav class="navbar navbar-expand-lg navbar-light bg-light container p-3">
-        <Link class="navbar-brand" to="/">
+        <Link class="navbar-brand" to="/dashboard">
           Consmart
         </Link>
         <button

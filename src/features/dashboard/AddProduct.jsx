@@ -19,8 +19,7 @@ function AddProduct() {
     // }
     onSubmit:async (values)=>{
         try{
-            
-        var res=await addNewProductFn(values).
+        var res=await addNewProductFn(values)
         addProductForm.resetForm();
         alert("Product Added Successfully")
         }
