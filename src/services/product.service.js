@@ -6,6 +6,16 @@
     reducerPath: 'productApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000/products' }),
     endpoints: (builder) => ({
+        getAllProducts:builder.query({
+        query: ()=>{
+         return '/'   
+        }
+        }),
+        getProductDetailsById:builder.query({
+            query: (id)=>{
+             return `/${id}`   
+            }
+            }),
         addNewProduct: builder.mutation({
         query: (product) =>{
             return {
@@ -23,4 +33,4 @@
 
     // Export hooks for usage in functional components, which are
     // auto-generated based on the defined endpoints
-    export const { useAddNewProductMutation } = productApi
+    export const { useAddNewProductMutation,useGetAllProductsQuery,useLazyGetAllProductsQuery,useGetProductDetailsByIdQuery,useLazyGetProductDetailsByIdQuery } = productApi

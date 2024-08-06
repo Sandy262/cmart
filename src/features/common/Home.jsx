@@ -39,6 +39,11 @@ function Home() {
               </a>
             </li>
             <li class="nav-item">
+              <Link class="nav-link" to="/cart">
+                Cart
+              </Link>
+            </li>
+            <li class="nav-item">
                 {isLoggedIn&&(
                     <button to="/login" class="btn btn-info" onClick={()=>{dispatch(logout());navigate("/")}}>
                     Logout
