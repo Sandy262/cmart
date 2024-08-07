@@ -5,13 +5,14 @@ import { logout } from '../user/loginslice'
 
 function Home() {
     var {isLoggedIn}=useSelector(state=>state.auth)
+    var { cartItems }=useSelector(state=>state.cart)
     var navigate=useNavigate()
     var dispatch=useDispatch()
   return (
     <div className="container">
       <h1>{}</h1>
       <nav class="navbar navbar-expand-lg navbar-light bg-light container p-3">
-        <Link class="navbar-brand" to="/dashboard">
+        <Link class="navbar-brand" to="/">
           Consmart
         </Link>
         <button
@@ -40,7 +41,7 @@ function Home() {
             </li>
             <li class="nav-item">
               <Link class="nav-link" to="/cart">
-                Cart
+                Cart <span class="badge bg-secondary">{cartItems.length}</span>
               </Link>
             </li>
             <li class="nav-item">
