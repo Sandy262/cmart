@@ -2,12 +2,18 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { logout } from '../user/loginslice'
+import { clearCart } from "./cartSlice";
 
 function Home() {
     var {isLoggedIn}=useSelector(state=>state.auth)
     var { cartItems }=useSelector(state=>state.cart)
     var navigate=useNavigate()
     var dispatch=useDispatch()
+    function userLogout(){
+      dispatch(clearCart())  
+      dispatch(logout());
+      navigate("/")
+    }
   return (
     <div className="container">
       <h1>{}</h1>
@@ -46,7 +52,7 @@ function Home() {
             </li>
             <li class="nav-item">
                 {isLoggedIn&&(
-                    <button to="/login" class="btn btn-info" onClick={()=>{dispatch(logout());navigate("/")}}>
+                    <button to="/login" class="btn btn-info" onClick={()=>{userLogout()}}>
                     Logout
                   </button>
                 )}

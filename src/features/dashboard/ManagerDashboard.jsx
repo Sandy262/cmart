@@ -5,6 +5,7 @@ function ManagerDashboard() {
     <div>
       <h1>Manager Dashboard</h1>
       <Link to="addProduct" className="btn btn-primary">Add Products</Link>
+      <Link to="viewOrders" >View Orders</Link>
       <Outlet></Outlet>
     </div>
   );

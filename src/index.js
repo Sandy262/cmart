@@ -19,6 +19,7 @@ import Products from './features/common/Products';
 import ProductDetails from './features/common/ProductDetails';
 import Cart from './features/common/Cart';
 import PlaceOrder from './features/common/PlaceOrder';
+import Orders from './features/common/Orders';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
               {
                 path:'/dashboard/addproduct',
                 element:<AddProduct></AddProduct>
+              },
+              {
+                path:'/dashboard/viewOrders',
+                element:<Orders></Orders>
               }
             ]
           },

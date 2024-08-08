@@ -7,14 +7,18 @@ function PlaceOrder() {
   var [placeOrderFn]=usePlaceOrderMutation()
   var {cartItems}=useSelector(state=>state.cart)
   function newPlaceOrder(){
-    cartItems.username=window.localStorage.getItem('username')
-    placeOrderFn()
+    //cartItems.username=window.localStorage.getItem('username')
+    var order={
+      username:window.localStorage.getItem('username'), 
+      cartItems
+    }
+    placeOrderFn(order).then(()=>{})
   }
   return (
     <div>
       <h2>Are you sure to Place Order</h2>
       <Link className="btn btn-warning" to="">Cancel</Link>
-      <button className='btn btn-success' onClick={()=>{}}>YeS, Place Order</button>
+      <button className='btn btn-success' onClick={newPlaceOrder}>YeS, Place Order</button>
     </div>
   )
 }

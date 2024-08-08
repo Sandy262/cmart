@@ -1,7 +1,7 @@
     import { createSlice } from "@reduxjs/toolkit";
     const initialState={
         isLoggedIn:window.localStorage.getItem('token')?true:false,
-        role:window.localStorage.getItem('role') || null,
+        role:window.localStorage.getItem('role')||null,
         username:window.localStorage.getItem('username')
     }
     export const loginSlice= createSlice({
@@ -9,6 +9,7 @@
     initialState,
     reducers:{
         setUser:(state,action)=>{
+            console.log(action)
             state.isLoggedIn=true;
             state.role=action.payload.role;
             state.username=action.payload.username
@@ -18,6 +19,7 @@
             state.role=null;
             state.username='';
             window.localStorage.clear()
+            
         }
     }
     })
