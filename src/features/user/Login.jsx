@@ -18,6 +18,7 @@ function Login() {
       loginFn(values).then((res) => {
         window.localStorage.setItem("token", res.data.token);
         window.localStorage.setItem("role", res.data.role);
+        window.localStorage.setItem("role", res.data.username);
         dispatch(setUser(res.data));
         navigate("/dashboard");
       });
