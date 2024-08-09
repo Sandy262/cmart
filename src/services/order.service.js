@@ -18,6 +18,18 @@ export const orderApi = createApi({
         };
       },
     }),
+    deleteOrder: builder.mutation({
+      query: (order) => {
+        return {
+          url: `/${order.id}`,
+          method: "DELETE",
+          body: order,
+          headers: {
+            token: window.localStorage.getItem("token"),
+          },
+        };
+      },
+    }),
     getAllOrders: builder.query({
       query: () => {
         return {
@@ -34,4 +46,4 @@ export const orderApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { usePlaceOrderMutation, useGetAllOrdersQuery } = orderApi;
+export const { usePlaceOrderMutation, useGetAllOrdersQuery,useLazyGetAllOrdersQuery,useDeleteOrderMutation } = orderApi;

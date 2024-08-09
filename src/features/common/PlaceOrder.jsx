@@ -9,7 +9,8 @@ function PlaceOrder() {
   function newPlaceOrder(){
     //cartItems.username=window.localStorage.getItem('username')
     var order={
-      username:window.localStorage.getItem('username'), 
+      username:window.localStorage.getItem('username'),
+      status:[{action:"placed",timestamp:Date.now()}], 
       cartItems
     }
     placeOrderFn(order).then(()=>{})
