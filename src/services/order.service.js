@@ -18,6 +18,42 @@ export const orderApi = createApi({
         };
       },
     }),
+    acceptOrder: builder.mutation({
+      query: (order) => {
+        return {
+          url: `/${order.id}`,
+          method: "PATCH",
+          body: {status:order.status},
+          headers: {
+            token: window.localStorage.getItem("token"),
+          },
+        };
+      },
+    }),
+    dispatchOrder: builder.mutation({
+      query: (order) => {
+        return {
+          url: `/${order.id}`,
+          method: "PATCH",
+          body: {status:order.status},
+          headers: {
+            token: window.localStorage.getItem("token"),
+          },
+        };
+      },
+    }),
+    setOrderDelivered: builder.mutation({
+      query: (order) => {
+        return {
+          url: `/${order.id}`,
+          method: "PATCH",
+          body: {status:order.status},
+          headers: {
+            token: window.localStorage.getItem("token"),
+          },
+        };
+      },
+    }),
     deleteOrder: builder.mutation({
       query: (order) => {
         return {
@@ -41,9 +77,20 @@ export const orderApi = createApi({
         };
       },
     }),
+    getOrdersByUserName: builder.query({
+      query: (username) => {
+        return {
+          url: `?username=${username}`,
+          method: "GET",
+          headers: {
+            token: window.localStorage.getItem("token"),
+          },
+        };
+      },
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { usePlaceOrderMutation, useGetAllOrdersQuery,useLazyGetAllOrdersQuery,useDeleteOrderMutation } = orderApi;
+export const { usePlaceOrderMutation, useGetAllOrdersQuery,useLazyGetAllOrdersQuery,useDeleteOrderMutation,useAcceptOrderMutation,useDispatchOrderMutation,useSetOrderDeliveredMutation,useGetOrdersByUserNameQuery,useLazyGetOrdersByUserNameQuery } = orderApi;
